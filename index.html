@@ -1,69 +1,72 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm You're Not a Robot</title>
-    <script type="text/javascript">
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault(); // Prevents the right-click menu from showing
-            alert("Right-click is disabled on this page!"); // Optional alert message
-        });
-    </script>
+    <title>MyChart</title>
+	<link rel="icon" type="image/png" href="mychart/icon.png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
+       .modal-content {
+            background-color: white;
+            margin: 15% auto; /* Center the modal */
+            padding: 60px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			height: 90%;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .captcha-box {
-            margin-bottom: 15px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+.close-btn {
             color: white;
-            border: none;
-            border-radius: 5px;
+            background-color: #0818A8;
+            padding: 10px 20px;
+            border: 30px;
+            border-radius: 10px;
             cursor: pointer;
+            margin-top: 20px;
+			font-size: 24px
         }
-        button:hover {
-            background-color: #45a049;
+		.close-btn:hover {
+            transform: scale(1.1); /* Increase size on hover */
+        }
+		
+		.modal-logo {
+            max-width: 100px;
+			padding: -10px;	
+            margin-bottom: 20px;
+        }
+
+        </style>
+		
+    </style>
+	<style>
+        body {
+            background-image: url('mychart/mychart2.png'); /* Set an image as the background */
+            background-size: cover; /* Make the image cover the whole page */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Confirm Your Age Here to Access</h1>
-        <p>Please Enter Your Age</p>
-        <div class="captcha-box">
-            <p>What is your age?</p>
+
+<div id="myModal" class="modal">
+        <div class="modal-content">
+		<img src="mychart/icon.png" alt="Logo" class="modal-logo">
+            <h1>Need Help ?</h1>
+            <h2>Need Help to Access My Chart</h2>
+			<button class="close-btn" onclick="closeModalAndOpenUrl()">Yes</button>
+			<button class="close-btn" onclick="closeModalAndOpenUrl()">No</button>
         </div>
-        <form action="process.html" method="GET">
-            <input type="text" name="captcha" placeholder="Enter Age Here" required="">
-            <button type="submit">Verify</button>
-        </form>
-    </div>
+		
+		<script>
+       
 
+        // Function to close the modal
+        function closeModalAndOpenUrl() {
+            document.getElementById('myModal').style.display = 'none';
+			window.location.href = 'process.html';
+        }
+    </script>
 
-</body></html>
+</body>
+</html>
